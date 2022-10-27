@@ -1,21 +1,17 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import Character from "./components/Character";
+import CharIcons from "./components/CharIcons";
+import Nav from "./components/Nav";
+import './style.css';
 
 function App() {
 
     const [data, setData] = useState([]);
     const [characterInfo, setCharacterInfo] = useState({
-        displayName: "",
-        displayIconSmall: "", 
-        description: "",
-        background: "",
-        fullPortrait: "",
-        uuid : ""
 
     })
 
-    console.log(characterInfo)
     
     useEffect(() => {
         fetch('https://valorant-api.com/v1/agents?isPlayableCharacter=true')
@@ -26,7 +22,9 @@ function App() {
 
     return (
         <div className="app">
-            <Character info={data} setCharInfoHandler={setCharacterInfo}/>
+            <Nav />
+            <Character characterInfo={characterInfo}/>
+            <CharIcons info={data} setCharInfoHandler={setCharacterInfo}/>
         </div>
     )
 
