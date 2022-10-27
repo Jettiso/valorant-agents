@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import Nav from "./components/Nav";
 import Character from "./components/Character";
 import CharIcons from "./components/CharIcons";
-import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import './style.css';
 
 function App() {
 
     const [data, setData] = useState([]);
     const [characterInfo, setCharacterInfo] = useState({
-
+        
     })
 
     
@@ -25,6 +26,7 @@ function App() {
             <Nav />
             <Character characterInfo={characterInfo}/>
             <CharIcons info={data} setCharInfoHandler={setCharacterInfo}/>
+            <Footer />
         </div>
     )
 
