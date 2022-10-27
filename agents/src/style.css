@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'Valorant';
+    src: url(./valo.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+.app {
+    display: grid;
+    grid-template-areas: 
+    "nav nav nav"
+    "main main main"
+    "sel sel sel"
+    "ft ft ft"
+    ;
+    max-width: 100%;
+}
+
+.icons__container {
+    grid-area: sel;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 80px));
+    max-width: 800px;
+}
+
+img {
+    object-fit: cover;
+    max-width: 100%;
+}
+
+nav {
+    grid-area: nav;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    padding: 1rem;
+    background-color: #251B37;
+}
+
+.nav__text {
+    font-family: 'Valorant', sans-serif;
+    text-transform: uppercase;
+    font-size: 2rem;
+    color: white;
+}
+
+.char__container {
+    grid-area: main;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
