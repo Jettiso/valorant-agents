@@ -3,7 +3,8 @@ import '../style.css'
 function CharIcons({info, setCharInfoHandler}) {
 
         const result = info.map((char) => {
-            let { displayName, displayIcon, background, description, fullPortrait, uuid } = char;
+            let { displayName, displayIcon, background, description, fullPortrait, uuid, role } = char;
+            
             
             return (
                 <div className="characterIcon" key={uuid} onClick={(e) => {
@@ -13,15 +14,17 @@ function CharIcons({info, setCharInfoHandler}) {
                         description: description,
                         background: background,
                         fullPortrait: fullPortrait,
-                        uuid : uuid
-                
+                        uuid : uuid,
+                        role : role.displayName,
+                        roleIcon : role.displayIcon,
+                        roleDesc : role.description,
+                        roleId : role.uuid
                     })
                 }}>
                     <img src={displayIcon} alt="" />
                 </div>
             )
         }) 
-        // console.log(info)
         return (
             <>
                     <div className="icons__container">
