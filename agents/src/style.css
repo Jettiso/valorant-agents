@@ -20,6 +20,13 @@ a {
     text-decoration: none;
 }
 
+
+img {
+    object-fit: cover;
+    max-width: 100%;
+    height: auto
+}
+
 .app {
     display: grid;
     grid-template-areas: 
@@ -30,23 +37,7 @@ a {
     ;
     max-width: 100%;
 }
-
-.icons__container {
-    grid-area: sel;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30px, 50px));
-    max-width: 650px;
-    place-self: center;
-    margin-top: 3rem;
-    gap: 2px;
-}
-
-img {
-    object-fit: cover;
-    max-width: 100%;
-    height: auto
-}
-
+/*  ======================= NAVIGATION BAR ======================= */
 nav {
     grid-area: nav;
     display: flex;
@@ -63,7 +54,7 @@ nav {
     font-size: 3rem;
     color: #eb2121;
 }
-
+/* ======================= CHARACTER ======================= */
 .character__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -74,26 +65,12 @@ nav {
 }
 
 
-
-
 .character__container h1 {
     font-size: 2.5rem;
     font-family: 'Valorant';
     text-align: center;
 }
-
-
-
-.characterIcon {
-    border: solid 1px rgb(242, 242, 242, 0.5);
-}
-
-.characterIcon:hover {
-    cursor: pointer;
-    transform: scale(1.5);
-    transition: all 100ms ease-in-out;
-}
-
+/*  ======================= CHARACTER-PORTRAIT ======================= */
 .imgWrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -115,18 +92,7 @@ nav {
     z-index: 1;
     opacity: 0.8;
 }
-
-.name__container {
-    z-index: 2;
-    grid-column: 3 / span 1;
-    grid-row: 4 / span 1;
-    background-color: rgba(228, 228, 228, 0.685);
-    padding: .5rem 1rem;
-    color: #eb2121;
-    place-self: end;
-    border-radius: 10px;
-}
-
+/*  ======================= CHARACTER-DETAILS ======================= */
 .character__details {
     grid-column: 3 / span 1;
     display: flex;
@@ -143,9 +109,143 @@ nav {
     
 }
 
-.character__details p {
+.character__details .character__description {
     align-self: flex-start;
     color: #f2f2f2;
     font-family: 'Poppins', monospace;
     max-width: 40ch;
+    font-size: 1.2rem;
+}
+/*  ======================= CHARACTER-ROLE ======================= */
+.role__container {
+    color: #f2f2f2;
+    align-self: flex-start;
+    margin-top: 1.5rem;
+}
+
+.role__container h2 {
+    text-transform: uppercase;
+    font-family: 'Roboto', monospace;
+    letter-spacing: 3px;
+}
+
+.role__container p {
+    margin-top: 1rem;
+    font-family: 'Poppins', monospace;
+    max-width: 40ch;
+    font-size: 1rem;
+}
+
+.role__container span {
+    display: inline-flex;
+}
+
+.role__container span img {
+    width: 30px;
+    margin-left: 1rem;
+}
+
+/* ======================= CHARACTER ICONS  =======================*/
+.icons__container {
+    grid-area: sel;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30px, 50px));
+    max-width: 650px;
+    place-self: center;
+    margin-top: 3rem;
+    gap: 2px;
+}
+
+.characterIcon {
+    border: solid 1px rgb(242, 242, 242, 0.5);
+}
+
+
+.characterIcon:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: all 100ms ease-in-out;
+}
+
+/* ======================= FOOTER  =======================*/
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-area: ft;
+    width: 100%;
+    background-color: transparent;
+    margin-top: 4rem;
+}
+
+.line__break {
+    width: 85%;
+    background-color: #f2f2f2;
+    height: 1px;
+}
+
+.fa-brands {
+    color: #f2f2f2;
+    font-size: 2rem;
+    margin: 5rem .5rem 2rem .5rem;
+}
+
+footer p {
+    color: #f2f2f2;
+    font-family: 'Robot', sans-serif;
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: #f2f2f2;
+    font-family: 'Robot', sans-serif;
+    letter-spacing: 2px;
+    font-size: 1.3;
+}
+
+/* ======================= RESPONSIVENESS  =======================*/
+
+
+@media screen and (max-width: 1045px) {
+    .character__container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 1fr);             
+    }
+    .character__details {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 2rem;
+    }
+    .imgWrapper {
+        grid-column: 1 / span 1;
+        max-width: 800px;
+    
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .character__container {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+    .imgWrapper {
+        grid-column: 1 / span 1;
+    
+    }
+    .character__details {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+    }
+    .icons__container {
+        grid-template-columns: repeat(auto-fit, minmax(30px, 100px));
+        max-width: 650px;
+        margin: 0 2rem;
+        gap: 10px;
+    }
 }
